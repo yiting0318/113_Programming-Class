@@ -14,7 +14,7 @@ public:
 };
 
 // 派生類別 Dog 繼承自 Animal
-class Dog : public  Animal {
+class Dog : protected  Animal {
 public:
     void bark() {
         cout << "Woof! I can bark!" << endl;
