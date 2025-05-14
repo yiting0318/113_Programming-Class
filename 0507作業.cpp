@@ -355,18 +355,19 @@ PC* Insert_PC(PC *head_PC)
     PC* b = NULL; //Behind
 	int x,y,z,a; //查詢的變數 
 	string n;
-	cout<<"請輸入學生座號、姓名及程設、英文成績"<<endl;
+	cout<<"請輸入學生座號、姓名及跑步、游泳和人工智慧成績"<<endl;
 	cin>>x;
 	cin.ignore(); 
 	getline(cin, n); 
 	cin>>y; 
 	cin>>z; 
+	cin>>a;
 	
 	p->write_no(x);
     p->write_name(n);
     p->write_run(y);
     p->write_swim(z);
-    p->write_ai(z);
+    p->write_ai(a);
     p->write_ptr(NULL); 
     
     if (head_PC == NULL) 
