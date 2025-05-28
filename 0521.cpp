@@ -1,7 +1,6 @@
 #include <iostream>
-#include <string>
-#include <iomanip>
-#include <fstream> // 檔案串流 
+#include <string>    //建立字串 
+#include <iomanip>   //對齊輸出 
 using namespace std;
 
 class STNODE
@@ -17,7 +16,6 @@ public:
     void write_name(string n){name = n;}
 	string read_name(){return name;}
     
-
 };
 
 class CMP : public  STNODE
@@ -72,7 +70,6 @@ public:
     	swim = swim + v ;
     	ai = ai + v ;
 	}
-	
 };
 
 
@@ -821,134 +818,13 @@ void Print_score_PC(PC *head)
     
 }
 
-//紀錄資料_資科 
-void output_CMP(CMP *head) 
-{
-	ofstream output("st_cmp.txt");
-	while (head != NULL)
-	{
-		output << head->read_no() << endl;
-		output << head->read_name() << endl;
-		output << head->read_prg() << endl;
-		output << head->read_eng() << endl;
-		head = head->read_ptr();
-	}
-	output.close();
-}
 
-//紀錄資料_資科 
-void output_PC(PC *head) 
-{
-	ofstream output("st_pc.txt");
-	while (head != NULL)
-	{
-		output << head->read_no() << endl;
-		output << head->read_name() << endl;
-		output << head->read_run() << endl;
-		output << head->read_swim() << endl;
-		output << head->read_ai() << endl;
-		head = head->read_ptr();
-	}
-	output.close();
-}
-
-//寫入資料_資科
-CMP* input_CMP(CMP *head)
-{
-	ifstream input("st_cmp.txt");
-	
-	CMP* f = NULL;
-	int x,y,z; //查詢的變數 
-	string n;
-	
-	while( input >> x  )
-	{
-		CMP* p = new CMP;
-		input.ignore(); 
-	    getline(input, n);
-	    input >>y; 
-	    input >>z;
-	     
-	    
-	    p->write_no(x);
-        p->write_name(n);
-        p->write_prg(y);
-        p->write_eng(z);
-        p->write_ptr(NULL);
-        
-        if (head == NULL) 
-		{
-            head = p;
-            f = head;
-        } 
-        
-        else
-        {
-            f->write_ptr(p);
-            f = p; 
-		}
-	    
-	}
-	input.close();
-	return head;
-	
-}
-
-//寫入資料_體育 
-PC* input_PC(PC *head)
-{
-	ifstream input("st_pc.txt");
-	
-	PC* f = NULL;
-	int x,y,z,a; //查詢的變數 
-	string n;
-	
-	while( input >> x  )
-	{
-		PC* p = new PC;
-		input.ignore(); 
-	    getline(input, n);
-	    input >>y; 
-	    input >>z;
-	    input >>a;
-	     
-	    
-	    p->write_no(x);
-        p->write_name(n);
-        p->write_run(y);
-        p->write_swim(z);
-        p->write_ai(a);
-        p->write_ptr(NULL);
-        
-        if (head == NULL) 
-		{
-            head = p;
-            f = head;
-        } 
-        
-        else
-        {
-            f->write_ptr(p);
-            f = p; 
-		}
-	    
-	}
-	input.close();
-	return head;
-	
-}
- 
 int main()
 {
 	int s,t; //輸入的菜單選項 
 	CMP *k = NULL; //傳遞每個串列 
 	PC *j = NULL;
 	MENU menu;
-	
-	
-
-	k = input_CMP(k);
-	j = input_PC(j);
 	
 	do
 	{
@@ -1054,11 +930,7 @@ int main()
 			}
 			break;
 				
-			case 0:
-			output_CMP(k);
-			output_PC(j);
-			cout<<"感謝使用本系統，歡迎下次再來^^"<<endl;
-			
+			case 0:cout<<"感謝使用本系統，歡迎下次再來^^"<<endl;
 			break;
 				
 			default:cout<<"沒有此選項"<<endl;
